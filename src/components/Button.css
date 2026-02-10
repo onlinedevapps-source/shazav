@@ -1,0 +1,106 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-family: var(--font-body);
+    font-weight: var(--font-semibold);
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 3px;
+}
+
+/* Sizes */
+.btn-small {
+    padding: var(--space-2) var(--space-5);
+    font-size: var(--text-sm);
+}
+
+.btn-medium {
+    padding: var(--space-3) var(--space-8);
+    font-size: var(--text-base);
+}
+
+.btn-large {
+    padding: var(--space-4) var(--space-12);
+    font-size: var(--text-lg);
+}
+
+/* Primary Variant - Gradient CTA */
+.btn-primary {
+    background: var(--gradient-cta);
+    color: var(--color-white);
+    box-shadow: 0 4px 12px rgba(0, 240, 255, 0.2);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 8px 20px rgba(0, 240, 255, 0.3), var(--shadow-glow);
+    transform: translateY(-2px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Secondary Variant - Outline */
+.btn-secondary {
+    background: transparent;
+    color: var(--color-navy);
+    border: 2px solid var(--color-navy);
+}
+
+.btn-secondary:hover {
+    background: var(--color-navy);
+    color: var(--color-white);
+}
+
+/* Ghost Variant - Minimal */
+.btn-ghost {
+    background: transparent;
+    color: var(--color-cyan);
+    position: relative;
+}
+
+.btn-ghost::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-cyan);
+    transition: all var(--transition-base);
+    transform: translateX(-50%);
+}
+
+.btn-ghost:hover::after {
+    width: calc(100% - var(--space-8) * 2);
+}
+
+/* Ripple effect */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:active::before {
+    width: 300px;
+    height: 300px;
+}
